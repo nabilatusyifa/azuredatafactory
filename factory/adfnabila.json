@@ -1,0 +1,9 @@
+{
+	"name": "adfnabila",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d0b06133-04bc-490d-a6a4-e7f891a72a56",
+		"tenantId": "e522de87-3b5f-4914-b700-3ee0ac8e7497"
+	}
+}
