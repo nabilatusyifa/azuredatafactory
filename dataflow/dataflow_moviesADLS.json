@@ -19,7 +19,11 @@
 						"referenceName": "CSV_Ratings",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "ADLS_nabila",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
@@ -103,7 +107,8 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1) ~> sink1"
 			]
 		}
 	}
