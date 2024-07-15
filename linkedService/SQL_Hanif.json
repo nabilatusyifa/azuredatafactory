@@ -1,0 +1,17 @@
+{
+	"name": "SQL_Hanif",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "mhaniffajari.database.windows.net",
+			"database": "data",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "admin_sa",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEUwNzE0NUNCLTREMTEtNDJGRi05MUMwLTg3RDg0QjM5NkQxM180ZTg3MDE4Mi05ODBiLTQ1M2ItYTBmNi03MjVkYjkwNWViN2YiDQp9"
+		}
+	}
+}
