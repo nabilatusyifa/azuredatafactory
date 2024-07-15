@@ -1,5 +1,5 @@
 {
-	"name": "Json_Hanif",
+	"name": "Json_ADLS_Hanif",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_Hanif",

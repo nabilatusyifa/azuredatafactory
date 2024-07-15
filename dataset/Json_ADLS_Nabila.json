@@ -1,5 +1,5 @@
 {
-	"name": "Json_Nabila",
+	"name": "Json_ADLS_Nabila",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_nabila",
