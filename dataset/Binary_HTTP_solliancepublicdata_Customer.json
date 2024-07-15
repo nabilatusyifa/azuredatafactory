@@ -1,0 +1,16 @@
+{
+	"name": "Binary_HTTP_solliancepublicdata_Customer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Http_solliancePublicData_Customer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			}
+		}
+	}
+}
