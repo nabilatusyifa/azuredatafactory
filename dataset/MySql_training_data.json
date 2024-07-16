@@ -10,6 +10,9 @@
 				"type": "string"
 			}
 		},
+		"folder": {
+			"name": "Database"
+		},
 		"annotations": [],
 		"type": "MySqlTable",
 		"schema": [],

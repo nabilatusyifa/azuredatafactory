@@ -5,6 +5,9 @@
 			"referenceName": "Http_solliancePublicData_Customer",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "HTTP"
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
