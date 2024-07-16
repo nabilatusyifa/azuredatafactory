@@ -67,7 +67,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "Binary_GoogleToADLS",
+									"referenceName": "Binary_ADLS_nabila",
 									"type": "DatasetReference",
 									"parameters": {
 										"container_name": "development",
@@ -85,7 +85,7 @@
 							"type": "Script",
 							"dependsOn": [
 								{
-									"activity": "transfer data google storage ",
+									"activity": "transfer data google storage",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -107,7 +107,10 @@
 								"scripts": [
 									{
 										"type": "Query",
-										"text": "@concat('INSERT INTO dbo.image (image_name, image_url) VALUES (''',concat(item(),'.png'), ''', ''https://storageacchanif.blob.core.windows.net/development/data/',concat(item(),'.png')''');')"
+										"text": {
+											"value": "@concat('INSERT INTO dbo.image (image_name, url_name) VALUES (''',concat(item(),'.png'), ''', ''https://storageaccnabila.blob.core.windows.net/development/data/',concat(item(),'.png'),''');')",
+											"type": "Expression"
+										}
 									}
 								],
 								"scriptBlockExecutionTimeout": "02:00:00"
@@ -118,7 +121,7 @@
 							"type": "Script",
 							"dependsOn": [
 								{
-									"activity": "transfer data google storage ",
+									"activity": "transfer data google storage",
 									"dependencyConditions": [
 										"Failed"
 									]
@@ -140,7 +143,10 @@
 								"scripts": [
 									{
 										"type": "Query",
-										"text": "@concat('INSERT INTO dbo.image (image_name, image_url) VALUES (''', concat(item(),'.png'), ''', ''failed', ''');')"
+										"text": {
+											"value": "@concat('INSERT INTO dbo.image (image_name, url_name) VALUES (''', concat(item(),'.png'), ''', ''failed', ''');')",
+											"type": "Expression"
+										}
 									}
 								],
 								"scriptBlockExecutionTimeout": "02:00:00"
