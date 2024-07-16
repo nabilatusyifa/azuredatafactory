@@ -44,7 +44,8 @@
 						"referenceName": "PostgreSql_Training_creditscoring",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "dbo"
+							"schema_name": "dbo",
+							"table_name": "application"
 						}
 					}
 				],
@@ -54,10 +55,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container_name": "development",
-							"folder_name": {
-								"value": "@concat('data/creditScoring/',formatDateTime(utcnow(), 'yyyy_MM_dd'))",
-								"type": "Expression"
-							},
+							"folder_name": "PostgreSql",
 							"file_name": "postgresql_application.csv",
 							"delimeter_name": ",",
 							"row_as_header": true
@@ -107,7 +105,8 @@
 						"referenceName": "PostgreSql_Training_creditscoring",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "dbo"
+							"schema_name": "dbo",
+							"table_name": "previous_application"
 						}
 					}
 				],
@@ -117,10 +116,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container_name": "development",
-							"folder_name": {
-								"value": "@concat('data/creditScoring/',formatDateTime(utcnow(), 'yyyy_MM_dd'))",
-								"type": "Expression"
-							},
+							"folder_name": "PostgreSql",
 							"file_name": "postgresql_previous_application.csv",
 							"delimeter_name": ",",
 							"row_as_header": true
@@ -170,7 +166,8 @@
 						"referenceName": "PostgreSql_Training_creditscoring",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "dbo"
+							"schema_name": "dbo",
+							"table_name": "bureau"
 						}
 					}
 				],
@@ -180,10 +177,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container_name": "development",
-							"folder_name": {
-								"value": "@concat('data/creditScoring/',formatDateTime(utcnow(), 'yyyy_MM_dd'))",
-								"type": "Expression"
-							},
+							"folder_name": "PostgreSql",
 							"file_name": "postgresql_bureau.csv",
 							"delimeter_name": ",",
 							"row_as_header": true
@@ -233,7 +227,8 @@
 						"referenceName": "PostgreSql_Training_creditscoring",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "dbo"
+							"schema_name": "dbo",
+							"table_name": "installment"
 						}
 					}
 				],
@@ -243,10 +238,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container_name": "development",
-							"folder_name": {
-								"value": "@concat('data/creditScoring/',formatDateTime(utcnow(), 'yyyy_MM_dd'))",
-								"type": "Expression"
-							},
+							"folder_name": "PostgreSql",
 							"file_name": "postgresql_installment.csv",
 							"delimeter_name": ",",
 							"row_as_header": true
@@ -312,10 +304,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container_name": "development",
-							"folder_name": {
-								"value": "@concat('data/creditScoring/',formatDateTime(utcnow(), 'yyyy_MM_dd'))",
-								"type": "Expression"
-							},
+							"folder_name": "PostgreSql",
 							"file_name": "postgresql_application.csv",
 							"delimeter_name": ",",
 							"row_as_header": true
@@ -391,10 +380,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container_name": "development",
-							"folder_name": {
-								"value": "@concat('data/creditScoring/',formatDateTime(utcnow(), 'yyyy_MM_dd'))",
-								"type": "Expression"
-							},
+							"folder_name": "PostgreSql",
 							"file_name": "postgresql_previous_application.csv",
 							"delimeter_name": ",",
 							"row_as_header": true
@@ -470,10 +456,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container_name": "development",
-							"folder_name": {
-								"value": "@concat('data/creditScoring/',formatDateTime(utcnow(), 'yyyy_MM_dd'))",
-								"type": "Expression"
-							},
+							"folder_name": "PostgreSql",
 							"file_name": "postgresql_bureau.csv",
 							"delimeter_name": ",",
 							"row_as_header": true
@@ -549,10 +532,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container_name": "development",
-							"folder_name": {
-								"value": "@concat('data/creditScoring/',formatDateTime(utcnow(), 'yyyy_MM_dd'))",
-								"type": "Expression"
-							},
+							"folder_name": "PostgreSql",
 							"file_name": "postgresql_installment.csv",
 							"delimeter_name": ",",
 							"row_as_header": true
