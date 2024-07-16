@@ -59,7 +59,7 @@
 										"bucket_name": "azure_data_engineer",
 										"directory_name": "image",
 										"file_name": {
-											"value": "@item()",
+											"value": "@concat(item(),'.png')",
 											"type": "Expression"
 										}
 									}
@@ -73,12 +73,78 @@
 										"container_name": "development",
 										"folder_name": "data",
 										"file_name": {
-											"value": "@item()",
+											"value": "@concat(item(),'.png')",
 											"type": "Expression"
 										}
 									}
 								}
 							]
+						},
+						{
+							"name": "Success log",
+							"type": "Script",
+							"dependsOn": [
+								{
+									"activity": "transfer data google storage ",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"linkedServiceName": {
+								"referenceName": "SQL_nabila",
+								"type": "LinkedServiceReference"
+							},
+							"typeProperties": {
+								"scripts": [
+									{
+										"type": "Query",
+										"text": "@concat('INSERT INTO dbo.image (image_name, image_url) VALUES (''',concat(item(),'.png'), ''', ''https://storageacchanif.blob.core.windows.net/development/data/',concat(item(),'.png')''');')"
+									}
+								],
+								"scriptBlockExecutionTimeout": "02:00:00"
+							}
+						},
+						{
+							"name": "Failed log",
+							"type": "Script",
+							"dependsOn": [
+								{
+									"activity": "transfer data google storage ",
+									"dependencyConditions": [
+										"Failed"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"linkedServiceName": {
+								"referenceName": "SQL_nabila",
+								"type": "LinkedServiceReference"
+							},
+							"typeProperties": {
+								"scripts": [
+									{
+										"type": "Query",
+										"text": "@concat('INSERT INTO dbo.image (image_name, image_url) VALUES (''', concat(item(),'.png'), ''', ''failed', ''');')"
+									}
+								],
+								"scriptBlockExecutionTimeout": "02:00:00"
+							}
 						}
 					]
 				}
