@@ -179,6 +179,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "Day 3"
+		},
 		"annotations": []
 	}
 }
