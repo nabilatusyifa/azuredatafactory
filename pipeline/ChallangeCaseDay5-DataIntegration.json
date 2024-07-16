@@ -3,40 +3,22 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup list image",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "SqlServerSource",
-						"sqlReaderQuery": "Select image_name, url_name\nfrom ",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "SQL_nabila",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "dbo",
-							"table_name": "list_image"
-						}
-					}
-				}
-			},
-			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@split(replace(activity('Lookup1').output.firstRow.concatenated_files, '\\', ''), ',')",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "transfer data google storage",
@@ -97,68 +79,37 @@
 									}
 								}
 							]
-						},
-						{
-							"name": "success log",
-							"type": "Script",
-							"dependsOn": [
-								{
-									"activity": "transfer data google storage ",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"linkedServiceName": {
-								"referenceName": "SQL_nabila",
-								"type": "LinkedServiceReference"
-							},
-							"typeProperties": {
-								"scripts": [
-									{
-										"type": "Query",
-										"text": {
-											"value": "@concat('INSERT INTO dbo.image (image_name, image_url) VALUES (''', item(), ''', ''https://storageacchanif.blob.core.windows.net/development/json_file/', item(), ''');')",
-											"type": "Expression"
-										}
-									}
-								],
-								"scriptBlockExecutionTimeout": "02:00:00"
-							}
-						},
-						{
-							"name": "failed log",
-							"type": "Script",
-							"dependsOn": [
-								{
-									"activity": "transfer data google storage ",
-									"dependencyConditions": [
-										"Failed"
-									]
-								}
-							],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"scripts": [],
-								"scriptBlockExecutionTimeout": "02:00:00"
-							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT \n    STRING_AGG(image_name,',') AS concatenated_files\nFROM list_image;",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SQL_Hanif_List_Image",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_name": "-",
+							"table_name": "-"
+						}
+					}
 				}
 			}
 		],
