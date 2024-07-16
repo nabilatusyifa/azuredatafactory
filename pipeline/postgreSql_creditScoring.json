@@ -44,7 +44,7 @@
 						"referenceName": "PostgreSql_Training_creditscoring",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "dbo",
+							"schema_name": "public",
 							"table_name": "application"
 						}
 					}
@@ -105,7 +105,7 @@
 						"referenceName": "PostgreSql_Training_creditscoring",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "dbo",
+							"schema_name": "public",
 							"table_name": "previous_application"
 						}
 					}
@@ -166,7 +166,7 @@
 						"referenceName": "PostgreSql_Training_creditscoring",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "dbo",
+							"schema_name": "public",
 							"table_name": "bureau"
 						}
 					}
@@ -227,7 +227,7 @@
 						"referenceName": "PostgreSql_Training_creditscoring",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "dbo",
+							"schema_name": "public",
 							"table_name": "installment"
 						}
 					}
