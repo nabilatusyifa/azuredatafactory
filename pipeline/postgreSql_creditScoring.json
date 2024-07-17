@@ -590,7 +590,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT * FROM view_load_modeling;",
+						"sqlReaderQuery": "SELECT * FROM view_loan_modeling;",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
