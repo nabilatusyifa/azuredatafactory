@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "SCD_Type1_User",
+				"name": "SQL_Employee",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -22,13 +22,7 @@
 					},
 					"sink": {
 						"type": "SqlServerSink",
-						"writeBehavior": "upsert",
-						"upsertSettings": {
-							"useTempDB": true,
-							"keys": [
-								"EmployeeID"
-							]
-						},
+						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -47,7 +41,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schema_name": "dbo",
-							"table_name": "Employee"
+							"table_name": "employee"
 						}
 					}
 				],
@@ -57,7 +51,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schema_name": "dbo",
-							"table_name": "Employee"
+							"table_name": "employee"
 						}
 					}
 				]
@@ -67,7 +61,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "SCD_Type1_User",
+						"activity": "SQL_Employee",
 						"dependencyConditions": [
 							"Completed"
 						]

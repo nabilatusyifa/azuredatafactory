@@ -1,0 +1,28 @@
+{
+	"name": "example_databrick",
+	"properties": {
+		"activities": [
+			{
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/kelompok1@xundarimalamsuro.onmicrosoft.com/Nabila/Introduction to Microsoft Azure Databricks/utility/starter_notebook"
+				},
+				"linkedServiceName": {
+					"referenceName": "DB_Kelompok1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
