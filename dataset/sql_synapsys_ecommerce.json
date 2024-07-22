@@ -1,5 +1,5 @@
 {
-	"name": "SQL_Synapsis",
+	"name": "sql_synapsys_ecommerce",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Sql_Synapse_Celerates",
@@ -13,11 +13,18 @@
 				"type": "string"
 			}
 		},
-		"folder": {
-			"name": "Database"
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema_name",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
+		}
 	}
 }

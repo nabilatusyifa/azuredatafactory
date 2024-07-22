@@ -1,0 +1,23 @@
+{
+	"name": "MongoDb_Celerates_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MongoDb_Celerates",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"collection_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "MongoDbV2Collection",
+		"schema": [],
+		"typeProperties": {
+			"collection": {
+				"value": "@dataset().collection_name",
+				"type": "Expression"
+			}
+		}
+	}
+}
